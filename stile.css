@@ -4,22 +4,30 @@ header {
     color: #fff;
     text-align: center;
     padding: 20px;
-    mirgin: 0 auto;
+    margin: 0 auto;
     border-radius: 10%;
+}
+
+nav {
+    display: flex;
 }
 
 nav ul {
     list-style: none;
+    padding: 0;
+    width: 100%;
 }
 
 nav ul li {
-    display: table-cell;
+    display: inline;
+    align-items: center;
     padding: 10px 10px 10px 10px;
     border-width: 3px;
     border-style: groove;
     border-color: #abc4c4;
     width: 50%;
-    mirgin:0 auto;
+
+    margin:0;
     text-align: center;
 
 }
@@ -44,15 +52,50 @@ nav ul li a:visited {
     text-decoration-color: khaki;
 }
 
+h1 {
+   text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
 main {
-    display: table;
+    display: block;
+}
+
+article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #MEOW {
+    width: 73%;
+    display: flex;
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #ccc;
     background: #abc4c4;
+}
+
+#pos {
+    margin-right: 0,4%;
+    margin-left: 20px;
+}
+
+#fixedElement {
+    position: fixed;
+    top: 30px;
+    right: 10px;
+    transform: translate(0, -50%);
+    background-color: aliceblue;
+    border: 1px solid #ccc;
+    width: 100px;
+    border-radius: 35%;
+}
+
+#processMap{
     float: left;
 }
 
@@ -63,8 +106,8 @@ section {
 }
 
 aside {
-    width: 30%;
-    float: right;
+    width: 20%;
+    height: 20%;
     background-color: #f0f0f0;
     padding: 20px;
     margin: 20px 0;
@@ -76,4 +119,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
+    position: sticky;
+    bottom: 0;
 }

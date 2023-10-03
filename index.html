@@ -23,10 +23,10 @@
 
 
 <header>
-    <p align = "center">
+    <p>
         <img src="ребенок.jpeg"  width="70" height="70">
     </p>
-    <h3 align = "center" > Поиск всякого добрецкого добра в современной европейской анимации </h3>
+    <h3> Поиск всякого добрецкого добра в современной европейской анимации </h3>
     <nav>
         <ul>
             <li><a href = "#not_tka"> Посмотреть на нормальный сайт </a>
@@ -39,6 +39,9 @@
 
 <main>
 
+    <p id="fixedElement">
+        Мы не поддерживаем взгляды автора
+    </p>
     <section>
         <h1 align ="center" id="tka_looking_at_ya"> Страничка для Альберта Васкесе</h1>
         <!-- заголовок 1 + имя якоря-->
@@ -49,9 +52,9 @@
         <p> <em> И для любителей <u>всратой</u> европейской анимации </em></p>
         <!-- использование тега p, u, em -->
         <pre>
-              ( •_•)⠀⠀⠀⠀(•_• ) ⠀⠀⠀  мои две последние мозговые клетки
-               ( ง )ง ⠀୧( ୧ ) ⠀⠀⠀    дерутся в ожидании нового фильма
-               /︶\⠀⠀⠀⠀⠀  /︶\
+                                                 ( •_•)⠀⠀⠀⠀(•_• ) ⠀⠀⠀  мои две последние мозговые клетки
+                                                 ( ง )ง ⠀୧( ୧ ) ⠀⠀⠀    дерутся в ожидании нового фильма
+                                                 /︶\⠀⠀⠀⠀⠀  /︶\
         </pre>
         <a href="https://albertovazquez.net" title="нажми давай, не бойся" id="not_tka"> <cite>ЭТО ССЫЛОЧКА НА НОРМАЛЬНЫЙ САЙТ </cite></a>
         <!-- создание ссылки на внешний сайт и тега cite (это настоящая цитата оттуда))) + добавлние названия-->
@@ -82,6 +85,7 @@
         <p></p>
     </section>
 
+    <article>
     <section id = "MEOW">
         <dl> <h3> Список короткометражек с описаниями:  </h3>
             <dt> - Homeless</dt>
@@ -97,26 +101,28 @@
             <dt> - И парочка студенчиских</dt>
             <dd> <i>Даж ссылки нет</i></dd>
         </dl>
-        <aside>
-            <p> Смотреть нужно в оригинале: английской озвучкой создатель (испанец) не заинтересован</p>
-        </aside>
-    </section>
+
 <!-- создание списка терминов, для описания использование курсива, заголовок жирным выделен-->
 
-    <article>
-        <figure>
-            <img src="https://boundingintocomics.com/wp-content/uploads/2022/09/2022.09.27-06.03-boundingintocomics-6332922f81dac.jpg" alt="Unicorn Wars" width="400" height="200">
-            <figcaption>Там много жестокости, но история потрясающая </figcaption>
-        </figure>
-        <!-- изображение с другого ресурса, создание подписи и задание размера изображения-->
-        <img id="processMap" src="Decorado.-Courtesy-of-UniKo.jpg"  width="400" height="200" align="center" usemap="#map">
-        <map id="_processMap" name="map">
-            <area shape="rect" coords="0,0, 400,42" alt="когда-нибудь я доживу до нее" href = "#tka_looking_at_ya">
-            <area shape="circle" coords="180,100, 10" alt="дата выхода: никогда" href = "#tka_looking_at_ya">
-            <area shape="poly" coords="260,96, 331,42, 300,96, 299,180, 286,180" alt="но красиво же" href = "#tka_looking_at_ya">
-        </map>
-        <!-- изображение с картой-->
+    </section>
+    <aside>
+        <p> Смотреть нужно в оригинале: английской озвучкой создатель (испанец) не заинтересован</p>
+    </aside>
     </article>
+
+        <article>
+            <figure id = "pos">
+                <img src="https://boundingintocomics.com/wp-content/uploads/2022/09/2022.09.27-06.03-boundingintocomics-6332922f81dac.jpg" alt="Unicorn Wars" width="400" height="200">
+                <figcaption>Там много жестокости, но история потрясающая </figcaption>
+            </figure>
+            <img id="processMap" src="Decorado.-Courtesy-of-UniKo.jpg"  width="400" height="200" align="center" usemap="#map">
+            <map id="_processMap" name="map">
+                <area shape="rect" coords="0,0, 400,42" alt="когда-нибудь я доживу до нее" href = "#tka_looking_at_ya">
+                <area shape="circle" coords="180,100, 10" alt="дата выхода: никогда" href = "#tka_looking_at_ya">
+                <area shape="poly" coords="260,96, 331,42, 300,96, 299,180, 286,180" alt="но красиво же" href = "#tka_looking_at_ya">
+            </map>
+            <aside> Информации по фильму пока слишком мало.</aside>
+        </article>
 
 </main>
 
@@ -132,3 +138,4 @@
 
 
 </html>
+
