@@ -56,6 +56,10 @@ h1 {
    text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 p {
   text-align: center;
 }
@@ -79,6 +83,34 @@ article {
     background: #abc4c4;
 }
 
+.video-gallery {
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    background: cadetblue;
+    margin: 10px;
+}
+
+
+.video-item {
+    width: 320px;
+    height: 180px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    background: #abc4c4;
+}
+
+.video-caption {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    width: 295px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
 #pos {
     margin-right: 0,4%;
     margin-left: 20px;
@@ -99,6 +131,17 @@ article {
     float: left;
 }
 
+#title {
+    width: 20%;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+
 section {
     padding: 20px;
     margin: 20px 0;
@@ -107,7 +150,6 @@ section {
 
 aside {
     width: 20%;
-    height: 20%;
     background-color: #f0f0f0;
     padding: 20px;
     margin: 20px 0;
@@ -121,4 +163,15 @@ footer {
     padding: 10px;
     position: sticky;
     bottom: 0;
+    height: 100px;
+}
+
+input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+textarea::placeholder {
+    color: #999;
+    font-style: italic;
 }

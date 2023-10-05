@@ -88,7 +88,7 @@
     <article>
     <section id = "MEOW">
         <dl> <h3> Список короткометражек с описаниями:  </h3>
-            <dt> - Homeless</dt>
+            <dt> - Homeless Home</dt>
             <dd> <i>Там грустно, в стране темного лорда-властелина все пьют и грустят </i></dd>
             <dt> - Unicorn Blood</dt>
             <dt> (прото Unicorn wars)</dt>
@@ -101,13 +101,33 @@
             <dt> - И парочка студенчиских</dt>
             <dd> <i>Даж ссылки нет</i></dd>
         </dl>
-
-<!-- создание списка терминов, для описания использование курсива, заголовок жирным выделен-->
-
     </section>
-    <aside>
-        <p> Смотреть нужно в оригинале: английской озвучкой создатель (испанец) не заинтересован</p>
-    </aside>
+        <aside>
+            <p> Смотреть нужно в оригинале: английской озвучкой создатель (испанец) не заинтересован</p>
+        </aside>
+    </article>
+    <article>
+        <aside id="title">
+        <h2> А вот и короткометражки </h2>
+        </aside>
+        <section class="video-gallery">
+            <section class="video-item">
+                <iframe src="https://www.youtube.com/embed/YJvK_QYEKuY" frameborder="10" allowfullscreen></iframe>
+                <p class="video-caption"> DECORADO </p>
+            </section>
+            <section class="video-item">
+                <iframe src="https://www.youtube.com/embed/8L0IuywROtE" frameborder="10" allowfullscreen></iframe>
+                <p class="video-caption"> Homeless Home </p>
+            </section>
+            <section class="video-item">
+                <iframe src="https://www.youtube.com/embed/OL6EF24Xr2s" frameborder="10" allowfullscreen></iframe>
+                <p class="video-caption"> Unicorn blood </p>
+            </section>
+            <section class="video-item">
+                <iframe src="https://www.youtube.com/embed/bpgvmDEVpDQ" frameborder="10" allowfullscreen></iframe>
+                <p class="video-caption"> Birdboy </p>
+            </section>
+        </section>
     </article>
 
         <article>
@@ -125,6 +145,64 @@
         </article>
 
 </main>
+
+<div>
+    <form action="" method="">
+
+        <fieldset>
+            <legend>Личные данные</legend>
+
+            <!-- Элементы <input> -->
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" pattern="[0-9]{10}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="avatar">Выберите файл:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Дополнительные параметры</legend>
+
+            <label for="comments">Комментарии:</label>
+            <textarea id="comments" name="comments" cols="30" rows="5" maxlength="500" minlength="10" placeholder="Введите ваши комментарии" required></textarea>
+            <label for="payment">Способ оплаты:</label>
+            <select id="payment" name="payment" required>
+                <option value="credit">Кредитная карта</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank">Банковский перевод</option>
+            </select>
+            <input type="checkbox" id="subscribe" name="subscribe" checked>
+            <label for="subscribe">Подписаться на рассылку</label>
+
+            <br>
+
+            <input type="radio" id="male" name="gender" value="male" checked>
+            <label for="male">Мужской</label>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Женский</label>
+
+        </fieldset>
+        <button type="submit">Отправить</button>
+        <button type="reset">Сбросить</button>
+
+    </form>
+</div>
+
+<div style="display: inline-table;">
+    <p style="margin:0 auto;"> <b> Вот здесь лежать буду </b></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17985.08902845473!2d37.592874547278264!3d55.70400551111916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b5d2111e84d%3A0xd385b0a23cadd932!2z0JTQsNC90LjQu9C-0LLRgdC60L7QtSDQutC70LDQtNCx0LjRidC1!5e0!3m2!1sru!2sru!4v1696377129000!5m2!1sru!2sru" width="600" height="450" style="border:0; margin:0 auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 <footer>
     <h2 align = "center" id="tka_not_looking_at_ya"> улети отсюда разбийник </h2>
