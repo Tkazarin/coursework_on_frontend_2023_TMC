@@ -52,6 +52,11 @@ nav ul li a:visited {
     text-decoration-color: khaki;
 }
 
+ol {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
 h1 {
    text-align: center;
 }
@@ -62,6 +67,10 @@ h2 {
 
 p {
   text-align: center;
+}
+
+pre {
+    text-align: left;
 }
 
 main {
@@ -81,10 +90,12 @@ article {
     margin: 20px 0;
     border: 1px solid #ccc;
     background: #abc4c4;
+    justify-content: center;
+    text-align: left;
 }
 
 .video-gallery {
-    width: 100%;
+    width: 90%;
     overflow-x: scroll;
     white-space: nowrap;
     background: cadetblue;
@@ -99,6 +110,9 @@ article {
     display: inline-block;
     vertical-align: top;
     background: #abc4c4;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
 }
 
 .video-caption {
@@ -114,6 +128,9 @@ article {
 #pos {
     margin-right: 0,4%;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #fixedElement {
@@ -132,7 +149,7 @@ article {
 }
 
 #title {
-    width: 20%;
+    width: 25%;
     height: 100%;
     background-color: #f0f0f0;
     padding-top: 100px;
@@ -143,6 +160,7 @@ article {
 
 
 section {
+    text-align: center;
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #ccc;
@@ -164,14 +182,174 @@ footer {
     position: sticky;
     bottom: 0;
     height: 100px;
+    z-index: 998;
 }
 
-input::placeholder {
-    color: #999;
-    font-style: italic;
+#burger-toggle {
+    display: none;
 }
 
-textarea::placeholder {
-    color: #999;
-    font-style: italic;
+#burger {
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    padding: 5px;
+    padding-top: 20px;
+    margin: 0 auto;
+    z-index: 1800;
+}
+
+#burger span {
+    background-color: #abc4c4;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Создание анимации при клике на бургер-кнопку */
+#burger-toggle:checked + #burger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger-toggle:checked + #burger span:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-toggle:checked + #burger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#burger {
+    display: none; /* Показываем бургер-кнопку при медиа-запросе */
+}
+
+.submenu {
+    display: none;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+
+@media (max-width: 768 px), (orientation: portrait)
+{
+    h2 {
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+    pre {
+        display: none;
+    }
+
+    #burger {
+        display: block;
+        position: fixed;
+        top: 0;
+    }
+
+    nav ul {
+        display: none; /* Скрываем стандартное меню при медиа-запросе */
+    }
+
+    .submenu {
+        display: flex;
+    }
+
+    #burger-toggle:not(checked) + #burger + .submenu {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+    }
+
+    #burger-toggle:checked + #burger + .submenu {
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: darkseagreen;
+        z-index: 1500;
+        margin-top: 0;
+        pointer-events: all;
+    }
+
+
+    #burger-toggle:checked + #burger + .submenu .sections{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: 20vh;
+    }
+
+
+    #burger-toggle:checked + #burger + .submenu .sections li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    #burger-toggle:checked + #burger + .submenu .sections a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    #burger-toggle:checked + #burger + .submenu .sections a:hover {
+        color: darkgreen;
+        font-weight: bold;
+    }
+
+    aside {
+        width: 73%;
+        background-color: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        margin-top: 0;
+        border: 1px solid #ccc;
+    }
+    #MEOW {
+        margin-bottom: 0;
+    }
+
+    #pictures
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    figure {
+        width: 90%;
+    }
+
+    #processMap {
+        width: 90%;
+    }
+
+    #picture_in_article {
+        width: 100%;
+    }
+
+    #title {
+        width: 90%;
+        height: 25%;
+        background-color: #f0f0f0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin: 20px 0;
+        border: 1px solid #ccc;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+    }
 }
