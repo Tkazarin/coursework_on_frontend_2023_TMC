@@ -23,14 +23,14 @@
 
 <header>
     <p>
-        <img src="ребенок.jpeg"  width="70" height="70">
+        <img class="baby" src="ребенок.jpeg"  width="70" height="70">
     </p>
     <h3> Поиск всякого добрецкого добра в современной европейской анимации </h3>
     <nav>
         <ul>
-            <li><a href = "#not_tka"> Посмотреть на нормальный сайт </a>
-            <li><a href = "#tka_not_looking_at_ya"> Пропустить сайт </a>
-            <li><a href = "#processMap">  Картенка-карта</a>
+            <li class="button"><a href = "#not_tka"> Посмотреть на нормальный сайт </a>
+            <li class="button rotate-button"><a href = "#tka_not_looking_at_ya"> Пропустить сайт </a>
+            <li class="button skew-button"><a href = "#processMap">  Картенка-карта</a>
         </ul>
     </nav>
     <hr>
@@ -52,6 +52,17 @@
     </nav>
 </div>
 
+<div class="notification">
+    <div class="notification-button">
+        <div class="icon"></div>
+    </div>
+    <ul class="notification-list">
+        <li>Twitter</li>
+        <li>Дай деняк</li>
+        <li>Чем я занимаюсь</li>
+    </ul>
+</div>
+
 <main>
 
     <p id="fixedElement">
@@ -60,7 +71,7 @@
     <section>
         <h1 align ="center" id="tka_looking_at_ya"> Страничка для Альберта Васкесе</h1>
         <!-- заголовок 1 + имя якоря-->
-        <sup> <a href = "#tka_not_looking_at_ya"> <i>жмякни</i> </a> </sup>
+        <sup class="button translate-button"> <a href = "#tka_not_looking_at_ya"> <i>жмякни</i> </a> </sup>
         <!-- создание кнопки-перехода на вниз и надстрочный текст и использование i тега-->
         <p><b>Это страничка для <strong> крутых </strong>!!!</b>
         <!-- использование тега br и strong, разделение hr-->
@@ -146,19 +157,39 @@
     </article>
 
         <article id="pictures">
-            <figure id = "pos">
-                <img src="https://boundingintocomics.com/wp-content/uploads/2022/09/2022.09.27-06.03-boundingintocomics-6332922f81dac.jpg" alt="Unicorn Wars" width="400" height="200" id="picture_in_article">
-                <figcaption>Там много жестокости, но история потрясающая </figcaption>
-            </figure>
-            <img id="processMap" src="Decorado.-Courtesy-of-UniKo.jpg"  width="400" height="200" align="center" usemap="#map">
-            <map id="_processMap" name="map">
-                <area shape="rect" coords="0,0, 400,42" alt="когда-нибудь я доживу до нее" href = "#tka_looking_at_ya">
-                <area shape="circle" coords="180,100, 10" alt="дата выхода: никогда" href = "#tka_looking_at_ya">
-                <area shape="poly" coords="260,96, 331,42, 300,96, 299,180, 286,180" alt="но красиво же" href = "#tka_looking_at_ya">
-            </map>
-            <aside> Информации по фильму пока слишком мало.</aside>
-        </article>
+            <div class="card">
+                <div class="card-inner">
+                    <img src="alberto1.png" alt="Image 1">
+                    <div class="card-text">
+                        Красивое
+                    </div>
+                </div>
+            </div>
 
+            <div class="card">
+                <div class="card-inner">
+                    <img src="alberto2.png" alt="Image 2">
+                    <div class="card-text">
+                        Спать хочу
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <img src="alberto3.png" alt="Image 3">
+                    <div class="card-text">
+                        Текст?
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="video-container">
+            <div class="overlay">
+                <p class="overlay-text">Точно рекомендую смотреть</p>
+            </div>
+            <iframe id="film-trailer" src="https://www.youtube.com/embed/f4WDZG8cWo8?si=Xk7TVbZ8lo-yMmem" controls></iframe>
+        </article>
 </main>
 
 
