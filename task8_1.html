@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>мне не нужны регистрации</title>
+    <style>
+    .form-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+        margin-top: 50px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .form-container:hover {
+      transform: scale(1.05);
+    }
+
+    .form-container:focus {
+      transform: scale(1.1);
+    }
+
+    .form-input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-button:hover {
+      background-color: #45a049;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .footer-item {
+        position: relative;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .footer-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .footer-item:hover {
+        transform: scale(1.05);
+    }
+
+    .footer-item:hover::before {
+        opacity: 1;
+    }
+
+    /* Медиа-запрос для адаптивности */
+    @media (max-width: 600px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2px;
+        grid-auto-flow: dense;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+        z-index: 1000;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        height: 100%
+    }
+
+    .like-button {
+        padding: 10px 20px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        left: 45%;
+    }
+    .like-button.liked {
+        background-color: #3e8e41;
+    }
+
+    .canvas {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        overflow: hidden;
+    }
+
+    #valueDisplay {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    #readButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 50px;
+        margin-bottom: 200px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 400px;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Вход в панель управления сайтом</h1>
+<form>
+    <label for="registration">Желаете пройти регистрацию на сайте?</label>
+    <input type="text" id="registration" name="registration">
+    <button type="button" onclick="checkRegistration()">Отправить</button>
+</form>
+<script src="script.js"></script>
+<div class="form-container">
+    <input id="login" type="text" class="form-input">
+    <button type="submit" class="form-button" onclick="checkLogin()">Отправить</button>
+    <form onsubmit="return validateCaptcha()">
+        <label for="captchaInput">Введите капчу:</label>
+        <input type="text" id="captchaInput" required>
+        <button type="submit" id="submitButton" disabled>Отправить</button>
+    </form>
+</div>
+<script src="script.js"></script>
+
+<div class="canvas" id="canvas"></div>
+<script>
+    let isDrawing = false;
+    document.addEventListener('mousedown', startDrawing);
+    document.addEventListener('mouseup', stopDrawing);
+    document.addEventListener('mousemove', draw);
+
+    function startDrawing() {
+        isDrawing = true;
+    }
+
+    function stopDrawing() {
+        isDrawing = false;
+        const parentElement = document.getElementById('canvas');
+        /*
+        while (parentElement.firstChild) {
+            parentElement.firstChild.remove();
+        }
+         */
+    }
+
+    function draw(event) {
+        if (!isDrawing) return;
+        let dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.style.position = 'absolute';
+        dot.style.left = (event.clientX - 1) + 'px';
+        dot.style.top = (event.clientY - 1) + 'px';
+        dot.style.height = '5px';
+        dot.style.width = '5px';
+        dot.style.background = 'black';
+        document.querySelector('.canvas').appendChild(dot);
+    }
+</script>
+
+<button class="like-button" onclick="toggleLike()">Нравится</button>
+<script>
+    function toggleLike() {
+        let button = document.querySelector('.like-button');
+        button.classList.toggle('liked');
+    }
+</script>
+
+  <div class="gallery-container">
+      <div class="gallery-item" style="grid-row-end: span 2; grid-column-end: span 2;">
+          <img src="ENA_1.jpg" alt="Image 1">
+      </div>
+      <div class="gallery-item" style="grid-row-end: span 3;">
+          <img src="ребенок.jpeg" alt="Image 2" >
+      </div>
+      <div class="gallery-item">
+          <img src="alberto1.png" alt="Image 3">
+      </div>
+      <div class="gallery-item" style="grid-column-end: span 3;">
+          <img src="ENA_2.jpg" alt="Image 4">
+      </div>
+      <div class="gallery-item">
+          <img src="Decorado.-Courtesy-of-UniKo.jpg" alt="Image 5">
+      </div>
+      <div class="gallery-item">
+          <img src="ENA_3.jpg" alt="Image 6">
+      </div>
+      <div class="gallery-item" style="grid-column-end: span 2;">
+          <img src="alberto2.png" alt="Image 7">
+      </div>
+      <div class="gallery-item" style="grid-column-end: span 3;">
+          <img src="ENA_4.jpg" alt="Image 4">
+      </div>
+  </div>
+
+  <div class="footer-container">
+      <div class="footer-item">Ссылка 1</div>
+      <div class="footer-item">Ссылка 2</div>
+      <div class="footer-item">Ссылка 3</div>
+      <div class="footer-item">Ссылка 4</div>
+  </div>
+<div>
+<h1>Корзина</h1>
+<p id="valueDisplay">Текущее значение: 0</p>
+<button id="readButton">Добавить в корзину</button>
+</div>
+<script>
+    function Accumulator(startingValue) {
+    this.value = startingValue;
+
+    this.read = function() {
+        var userInput = prompt("Введите число:");
+        var number = parseFloat(userInput);
+        if (!isNaN(number)) {
+            this.value += number;
+            document.getElementById("valueDisplay").textContent = "Текущее значение: " + this.value;
+        } else {
+            alert("Введено некорректное число!");
+        }
+    };
+}
+
+var accumulator = new Accumulator(0);
+document.getElementById("readButton").addEventListener("click", function() {
+    accumulator.read();
+});
+</script>
+
+<div class="card">
+    <h2>Карточка 1</h2>
+    <p id="text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button onclick="truncateText('text1', 20)">Усечь</button>
+</div>
+
+<div class="card">
+    <h2>Карточка 2</h2>
+    <p id="text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button onclick="truncateText('text2', 30)">Усечь</button>
+</div>
+
+</body>
+</html>

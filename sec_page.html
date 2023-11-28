@@ -17,11 +17,12 @@
   <p>
     <img class="baby" src="ребенок.jpeg"  width="70" height="70">
   </p>
-  <h3> Поиск всякого добрецкого добра в современной европейской анимации </h3>
+  <h3> Поиск всякого добрецкого добра в современной инди анимации </h3>
   <nav>
     <ul>
-      <li class="butt"><a href = "#not_tka"> Посмотреть на нормальный сайт </a>
-      <li class="butt rotate-button"><a href = "#tka_not_looking_at_ya"> Пропустить сайт </a>
+      <li class="the_center"><a href = ""> <img src></a>
+      <li class="butt"><a href = "index.html"> Посмотреть на нормальный сайт </a>
+      <li class="butt rotate-button"><a href = "GreenSalad.html"> Пропустить сайт </a>
       <li class="butt skew-button"><a href = "#processMap">  Картенка-карта</a>
     </ul>
   </nav>
@@ -111,30 +112,47 @@
 <section class="task4">
 <div class="cardWrap">
   <div class="scard">
-    <h1 class="content">Log In</h1>
-    <h3 class="content">please fill out the filds...</h3>
-    <form action="">
-      <div>
-        <input type="text" placeholder="username">
-      </div>
-      <div>
-        <input type="password" placeholder="password">
-      </div>
-      <div class="mx-auto">
-        <input type="submit" value="Log In">
-      </div>
-    </form>
-  </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qLurAhsqXWc?si=F6ORL1H87Ai49l7Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  </div>
 </div>
-<div class="ball ball1"></div>
-<div class="ball ball2"></div>
-<div class="ball ball3"></div>
+<div class="ball ball1"> <img src="HourglassDog1.png" width="400" height="400"> </div>
+<div class="ball ball2"> <img src="HourglassDog2.png"> </div>
+<div class="ball ball3"> <img src="HourglassDog3.gif"> </div>
 </section>
+<script>
+  const ball1 = document.querySelector('.ball1');
+  const ball2 = document.querySelector('.ball2');
+  const ball3 = document.querySelector('.ball3');
+
+  let angle1 = 0;
+  let angle2 = 0;
+  let angle3 = -35;
+
+  function animate() {
+    angle1 += 1;
+    angle2 += 2;
+    angle3 += 1;
+
+    const x1 = 200 * Math.cos(angle1 * Math.PI / 180) + 200;
+    const y1 = 60 * Math.sin(angle1 * Math.PI / 180) + 60;
+    ball1.style.transform = `translate(${x1}px, ${y1}px)`;
+
+    const x2 = 100 * Math.cos(angle2 * Math.PI / 180) + 200;
+    const y2 = 100 * Math.sin(angle2 * Math.PI / 180) + 200;
+    ball2.style.transform = `translate(${x2}px, ${y2}px) rotate(${angle2}deg)`;
+
+    const x3 = 140 * Math.cos(angle3 * Math.PI / 180) - 60;
+    const y3 = 140 * Math.sin(angle3 * Math.PI / 180) - 140;
+    ball3.style.transform = `translate(${x3}px, ${y3}px) rotate(-35deg)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
 
 <section class="task5">
-  <div class="card-grid">
+  <div class="cardss-grid">
     <a class="cardss" href="#">
-
       <div class="cardss__background">
         <div class="line"></div>
         <div class="line"></div>
@@ -146,6 +164,9 @@
         bruh1
       </div>
 
+      <div class="cardss__image_1">
+        <img src="Ena1.png" height="512" width="352">
+      </div>
     </a>
     <a class="cardss" href="#">
 
@@ -158,7 +179,9 @@
       <div class="cardss__content">
         bruh2
       </div>
-
+      <div class="cardss__image_2">
+        <img src="Ena2.png" height="512" width="352">
+      </div>
     </a>
     <a class="cardss" href="#">
 
@@ -172,21 +195,26 @@
       <div class="cardss__content">
         bruh3
       </div>
-
+      <div class="cardss__image_3">
+        <img src="Ena3.png" height="408" width="304">
+      </div>
     </a>
   </div>
 </section>
 
 <footer>
-  <h2 align = "center" id="tka_not_looking_at_ya"> улети отсюда разбийник </h2>
-  <div class="task3">
-    <ul>
-      <li><a href=""> <i class="fa fa-twitter"></i></a></li>
-      <li><a href=""><i class="fa fa-youtube"></i></a></li>
-      <li><a href=""><i class="fa fa-newgrounds"></i></a></li>
+  <h2 align = "center" id="tka_not_looking_at_ya"> А вот и все, ребята! </h2>
+  <div class="footer-social-icons">
+    <ul class="social-icons">
+      <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+      <li><a href="" class="social-icon"> <i class="fa fa-newgrounds"></i></a></li>
+      <li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+      <li><a href="" class="social-icon"> <i class="fa fa-github"></i></a></li>
     </ul>
   </div>
-  <address> Сделано собакой сутулой</address>
+  <address > Сделано pes_chan</address>
+  <div class="character"></div>
+  <script src="ENA.js"></script>
 </footer>
 
 </body>

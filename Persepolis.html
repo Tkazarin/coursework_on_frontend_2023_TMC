@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Don't look it up, kinda gross thing</title>
+    <link rel="stylesheet" href="Persepolis.css">
+
+</head>
+<body>
+
+<div class="card">
+    <div class="eyes">
+        <div class="left-eye"> <div class="left-pupil"> </div> </div>
+        <div class="right-eye">  <div class="right-pupil"> </div> </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var r_eye = document.querySelectorAll(".right-pupil")[0];
+        var l_eye = document.querySelectorAll(".left-pupil")[0];
+
+        function handleMouseMove(event) {
+            var eyeRect = r_eye.getBoundingClientRect();
+            var eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            var eyeCenterY = eyeRect.top + eyeRect.height / 2;
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+            var deltaX = mouseX - eyeCenterX;
+            var deltaY = mouseY - eyeCenterY;
+            var angle = Math.atan2(deltaY, deltaX);
+            var maxOffset = 10; // максимальное смещение глаз
+            var offsetX = Math.cos(angle) * maxOffset;
+            var offsetY = Math.sin(angle) * maxOffset;
+            r_eye.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
+            l_eye.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
+        }
+
+        document.addEventListener("mousemove", handleMouseMove);
+    });
+</script>
+</body>
+</html>

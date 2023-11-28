@@ -1,11 +1,16 @@
+body {
+    font-family: 'Herculanum', "Amatic SC";
+    font-size: larger;
+}
+
 header {
-    font-family: 'Open Sans', 'sans-serif';
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px;
     margin: 0 auto;
     border-radius: 10%;
+    font-size: 32pt;
 }
 
 nav {
@@ -29,7 +34,6 @@ nav ul li {
 
     margin:0;
     text-align: center;
-
 }
 
 nav ul li a {
@@ -134,18 +138,6 @@ article {
     text-align: center;
 }
 
-#fixedElement {
-    position: fixed;
-    top: 30px;
-    right: 10px;
-    transform: translate(0, -50%);
-    background-color: aliceblue;
-    border: 1px solid #ccc;
-    width: 100px;
-    border-radius: 35%;
-    z-index: 1400;
-}
-
 #title {
     width: 25%;
     height: 100%;
@@ -175,79 +167,112 @@ aside {
 footer {
     background-color: #333;
     color: #fff;
+    margin-top: 50px;
     text-align: center;
-    padding: 10px;
-    position: sticky;
-    bottom: 0;
-    height: 100px;
+    padding: 20px;
+    height: 160px;
     z-index: 998;
+    position: relative;
+}
+
+.footer-social-icons {
+    width: 30vw;
+    display:block;
+    margin: 35px auto;
+}
+.social-icon {
+    color: #fff;
+}
+ul.social-icons {
+    height: 100%;
+    padding: 0;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.fa-twitter {
+    padding:23px 23px;
+    transition:.5s;
+    background-color: #818181;
+}
+.fa-twitter:hover {
+    background-image: url("img.png");
+    background-color: rgba(0, 0, 0);
+    background-position: center;
+    background-size: 30px 30px;
+}
+.fa-newgrounds {
+    padding:23px 23px;
+    transition: .5s;
+    background-color: #818181;
+}
+.fa-newgrounds:hover {
+    background-color: #eb8231;
+    background-image: url("ngdockico2.png");
+    background-position: center;
+    background-size: 30px 30px;
+}
+.fa-youtube {
+    padding: 23px 23px;
+    transition: .5s;
+    background-color: #818181;
+}
+.fa-youtube:hover {
+    background-color: #e64a41;
+    background-image: url("img_1.png");
+    background-color: rgba(0, 0, 0);
+    background-position: center;
+    background-size: 30px 30px;
+}
+
+.fa-github {
+    padding:23px 23px;
+    transition: .5s;
+    background-color: #818181;
+}
+.fa-github:hover {
+    background-color: #5a32a3;
+    background-image: url("b15eedbdafbbdbca3249e3942f4faf3b.png");
+    background-position: center;
+    background-size: 30px 30px;
 }
 
 /*КНОПКА УВЕДОМЛЕНИЙ (ТИПО)*/
 
-.notification {
-    position: fixed;
-    bottom: 40px;
-    left: 20px;
-    z-index: 1000;
-}
 
-.notification-button {
+/*КНОПКИ МЕНЮ ПОСТМОДЕРН*/
+.the_center {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid #0074d9;
     background-color: #0074d9;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    background-image: url('db4mxc7-e6ad6d96-518e-41e5-85d1-257050e2f4b1.gif');
+    background-size: cover;
+    color: #fff;
+    margin: 10px auto 10px;
     cursor: pointer;
-    position: relative;
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
-.notification-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    width: 20vw;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.notification-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
     transition: transform 0.3s, background-color 0.3s;
 }
-.notification-list li:hover {
+
+.the_center:hover {
     transform: scale(1.1);
     background-color: #0056b3;
 }
-
-.notification:hover .notification-list {
-    display: block;
-    opacity: 1;
-}
-
-/*КНОПКИ МЕНЮ ПОСТМОДЕРН*/
 
 .button {
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 20pt;
     border: 2px solid #0074d9;
     background-color: #0074d9;
     color: #fff;
@@ -384,47 +409,6 @@ img {
     opacity: 1;
 }
 
-/*КОНТЕЙНЕР С ВИДЕО И ОВЕРЛЕЕМ*/
-.video-container {
-    position: relative;
-    width: 70%;
-    height: 500px;
-    overflow: hidden;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-#film-trailer {
-    width: 100%;
-    height: 80%;
-    padding-top: 10%;
-    padding-bottom: 10%;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 150px;
-    height: 100%;
-    background-color: #0074d9;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-}
-
-.overlay-text{
-    padding-top: 80%;
-}
-
-.video-container:hover .overlay {
-    transform: translateX(0);
-}
-
 .baby {
     width: 100px;
     height: 100px;
@@ -503,7 +487,6 @@ img {
 
     #burger-toggle:checked + #burger + .submenu .sections a:hover {
         color: darkgreen;
-        font-weight: bold;
     }
 
     aside {

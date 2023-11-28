@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this thing is kinda gross</title>
+    <link rel="stylesheet" href="GreenSalad.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <p>
+        <img class="baby" src="ребенок.jpeg"  width="100" height="100">
+    </p>
+    <h3> Поиск всякого добрецкого добра в современной инди анимации </h3>
+    <nav>
+        <ul>
+            <li class="the_center"><a href = ""> <img src></a>
+            <li class="button"><a href = "index.html"> Посмотреть на нормальный сайт </a>
+            <li class="button rotate-button"><a href = "sec_page.html"> Пропустить сайт </a>
+            <li class="button skew-button"><a href = "#processMap">  Картенка-карта</a>
+        </ul>
+    </nav>
+    <hr>
+</header>
+
+<main>
+    <div class="comic">
+        <div class="holding">
+        <ul class="slider">
+            <li>
+                <input type="radio" id="slide1" name="slide" checked>
+                <label for="slide1"></label>
+                <img src="Persepolis_1.png" alt="Panel 1">
+            </li>
+            <li>
+                <input type="radio" id="slide2" name="slide">
+                <label for="slide2"></label>
+                <img src="Persepolis_2.png" alt="Panel 2">
+            </li>
+            <li>
+                <input type="radio" id="slide3" name="slide">
+                <label for="slide3"></label>
+                <img src="Persepolis_3.png" alt="Panel 3">
+            </li>
+            <li>
+                <input type="radio" id="slide4" name="slide">
+                <label for="slide4"></label>
+                <img src="Persepolis_4.png" alt="Panel 4">
+            </li>
+        </ul>
+        </div>
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="top"></div>
+                <div class="bottom">
+                    <div class="left">
+                        <div class="details">
+                            <h1>Комикс</h1>
+                            <p>1200 руб</p>
+                        </div>
+                        <div class="buy"><i class="material-icons"> <img class="icon_plus" src="plus.png">  </i></div>
+                    </div>
+                    <div class="right">
+                        <div class="done"><i class="material-icons"> <img class="icon_checkmark" src="checkmark.png"> </i></div>
+                        <div class="details">
+                            <h1>Комикс</h1>
+                            <p>в корзине</p>
+                        </div>
+                        <div class="remove"><i class="material-icons"> <img class="icon_cross" src="close.png"> </i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="inside">
+                <div class="icon"><i class="material-icons"> <img class="icon_info" src="Eye_icon.png"> </i></div>
+                <div class="contents">
+                    <table>
+                        <tr style="height: 35px;">
+                            <th> Автор: Маржан Сатрапи</th>
+                        </tr>
+                        <tr style="height: 50px;">
+                            <td> Перевод с французского Анны Зайцевой </td>
+                        </tr>
+                        <tr style="height: 110px;">
+                            <th> <i>В «Персеполисе есть всё то, чего мы обычно не ждём от комикса: хроника драматических событий, роман воспитания, интимный дневник. Прекрасная книга. </i></th>
+                        </tr>
+                        <tr style="height: 80px;">
+                            <td>  Антон Долин, главный редактор журнала «Искусство кино» </td>
+                        </tr>
+                        <tr>
+                            Размер издания: 170х240 мм
+                        </tr>
+                        <tr>
+                            Количество страниц: 352
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelector('.buy').addEventListener('click', function(){
+                document.querySelector('.bottom').classList.add('clicked');
+            });
+
+            document.querySelector('.remove').addEventListener('click', function(){
+                document.querySelector('.bottom').classList.remove('clicked');
+            });
+        </script>
+    </div>
+
+    <article class="video-container">
+        <div class="overlay">
+            <p class="overlay-text">Точно рекомендую смотреть</p>
+        </div>
+        <iframe id="film-trailer" src="https://www.youtube.com/embed/3PXHeKuBzPY?si=7OjpBGqywfgwzjcL" controls></iframe>
+    </article>
+</main>
+
+<footer>
+    <h2 align = "center" id="tka_not_looking_at_ya"> А вот и все, ребята! </h2>
+    <div class="footer-social-icons">
+        <ul class="social-icons">
+            <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+            <li><a href="" class="social-icon"> <i class="fa fa-newgrounds"></i></a></li>
+            <li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+            <li><a href="" class="social-icon"> <i class="fa fa-github"></i></a></li>
+        </ul>
+    </div>
+    <address > Сделано pes_chan</address>
+</footer>
+</body>
+</html>
