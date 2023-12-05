@@ -7,37 +7,169 @@
 
 </head>
 <body>
-
-<div class="card">
-    <div class="eyes">
-        <div class="left-eye"> <div class="left-pupil"> </div> </div>
-        <div class="right-eye">  <div class="right-pupil"> </div> </div>
+<header>
+    <p>
+        <img class="baby" src="ребенок.jpeg"  width="100" height="100">
+    </p>
+    <h3 style="background: red;"> Поиск всякого добрецкого добра в современной инди анимации </h3>
+    <nav>
+        <ul>
+            <li class="the_center"><a href = "last_one.html">  <img src></a>
+            <li class="button"><a href = "index.html"> Альберт Вескезе </a>
+            <li class="button rotate-button"><a href = "sec_page.html"> ENA </a>
+            <li class="button skew-button"><a href = "GreenSalad.html">  Persepolis</a>
+        </ul>
+    </nav>
+    <hr>
+</header>
+<main>
+    <div class="box">
+        <div id="root">
+            <div id="text" data-text="Salad Fingers">Salad Fingers</div>
+        </div>
     </div>
-</div>
+    <script>
+        const container_size = document.querySelector('.box');
+        var text = document.getElementById('text');
+        var root = document.getElementById('root');
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var r_eye = document.querySelectorAll(".right-pupil")[0];
-        var l_eye = document.querySelectorAll(".left-pupil")[0];
+        function adjustFontSize() {
+            var containerWidth = container_size.offsetWidth;
+            var containerHeight = container_size.offsetHeight;
 
-        function handleMouseMove(event) {
-            var eyeRect = r_eye.getBoundingClientRect();
-            var eyeCenterX = eyeRect.left + eyeRect.width / 2;
-            var eyeCenterY = eyeRect.top + eyeRect.height / 2;
-            var mouseX = event.clientX;
-            var mouseY = event.clientY;
-            var deltaX = mouseX - eyeCenterX;
-            var deltaY = mouseY - eyeCenterY;
-            var angle = Math.atan2(deltaY, deltaX);
-            var maxOffset = 10; // максимальное смещение глаз
-            var offsetX = Math.cos(angle) * maxOffset;
-            var offsetY = Math.sin(angle) * maxOffset;
-            r_eye.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
-            l_eye.style.transform = "translate(" + offsetX + "px, " + offsetY + "px)";
+            var maxWidth = containerWidth * 0.8;
+            var maxHeight = containerHeight * 0.8;
+
+            var fontSize1 = Math.min(maxWidth, maxHeight);
+            var fontSize2 = containerWidth*0.75 / 13;
+
+            if (fontSize1 < fontSize2)
+            {
+                text.style.fontSize = fontSize1 + 'px';
+            }
+            else
+            {
+                text.style.fontSize = fontSize2 + 'px';
+            }
+            var textWidth = text.getBoundingClientRect().width;
+            var textHeight = text.getBoundingClientRect().height;
+            console.log(textWidth, " ", textHeight);
+            var offsetX = (containerWidth - textWidth) / 2;
+            var offsetY = (containerHeight - textHeight) / 2;
+
+            console.log(offsetX, " ", offsetY);
+            root.style.position = 'absolute';
+            root.style.left = offsetX + 'px';
+            root.style.top = offsetY + 'px';
+
         }
 
-        document.addEventListener("mousemove", handleMouseMove);
+        adjustFontSize();
+
+        window.addEventListener('resize', adjustFontSize);
+
+        drawLines();
+
+        function drawLines() {
+            const container = document.querySelector('.box');
+            const lines = container.getElementsByClassName('line');
+            if (lines.length) {
+                for (let i = 0; i < lines.length; i++) {
+                    container.removeChild(lines[i]);
+                }
+            }
+            for (let i = 0; i < container.clientHeight / 10; i++) {
+                const line = document.createElement("div");
+                line.className = `line line-${i}`;
+                line.style.top = `${i * 10}px`;
+                const time = Math.random() * 5;
+                line.style.animation = `lines ${time}s infinite`;
+                container.appendChild(line);
+            }
+        }
+
+        window.onresize = function(event) {
+            drawLines();
+        };
+    </script>
+    <div class="introduction">
+        Зелёные Обрубки — это сюрреалистический, постапокалиптический, психологический мультсериал, созданный британским карикатуристом Дэвидом Фёртом в июле 2004 года. Сериал был выложен на YouTube и Newgrounds. Свою нынешнюю популярность он приобрел в 2005 году. "San Francisco Chronicle" включил его в "топ-10" феноменов поп-культуры за тот год. Многие бы назвали этот сериал тревожным и жутким, однако другие считают эти качества лишь достоинствами сериала.
+    </div>
+    <script>
+        // Получаем контейнер с текстом
+        var container = document.querySelector('.introduction');
+
+        // Получаем текст из контейнера
+        var text = container.textContent;
+
+        // Очищаем контейнер
+        container.innerHTML = '';
+
+        // Функция для генерации рандомного цвета
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Создаем отдельный <span> для каждой буквы и применяем рандомный цвет
+        for (var i = 0; i < text.length; i++) {
+            var span = document.createElement('span');
+            span.textContent = text[i];
+            container.appendChild(span);
+        }
+
+        // Обработчик события движения мышки
+        function handleMouseMove(event) {
+            var letters = container.querySelectorAll('span');
+            letters.forEach(function(letter) {
+                letter.style.color = getRandomColor();
+            });
+        }
+
+        // Добавляем обработчик события движения мышки к контейнеру
+        container.addEventListener('mousemove', handleMouseMove);
+    </script>
+<div class="canvas">
+    <button class="crazy-button">
+        Нажми на меня, чтобы понять смысл Зеленых обрубков!
+    </button>
+</div>
+<script>
+    const buttonElement = document.querySelector('.crazy-button');
+    const containerElement = document.querySelector('.canvas');
+
+    buttonElement.addEventListener('mouseenter', moveButton = () => {
+        const offsetLeft = Math.random() * (containerElement.offsetWidth - buttonElement.clientWidth - 20);
+        const offsetTop = Math.random() * (containerElement.offsetHeight - buttonElement.clientHeight - 20);
+        buttonElement.style.top = offsetTop + 'px';
+        buttonElement.style.left = offsetLeft + 'px';
     });
 </script>
+    <p class="them"> ДЭВИД ФЕРТ</p>
+    <div class="bio">
+        Работы Фёрта, как правило, содержат мрачные образы и темы тревожного характера, такие как депрессия и психические заболевания. Фёрт заявил, что в его задачу не входит расстраивать или оскорблять. Помимо мрачных тем и черного юмора, работы Фёрта часто сюрреалистичны и экспериментальны.
+    </div>
+    <p class="them" style="font-size: 32px"> Спешите купить кружку с его очаровательным лицом!</p>
+    <div class="cont">
+        <div class="elem"> </div>
+        <img class="Him" src="david_firth.png">
+    </div>
+</main>
+<footer>
+    <h2 align = "center" id="tka_not_looking_at_ya"> А вот и все, ребята! </h2>
+    <div class="footer-social-icons">
+        <ul class="social-icons">
+            <li><a href="https://t.me/home_of_pes_chan" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://peschan.newgrounds.com" class="social-icon"> <i class="fa fa-newgrounds"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCHmZREmmJzUX-eljku5A7Ng" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+            <li><a href="https://github.com/Tkazarin" class="social-icon"> <i class="fa fa-github"></i></a></li>
+        </ul>
+    </div>
+    <address > Сделано pes_chan</address>
+</footer>
 </body>
 </html>

@@ -178,6 +178,136 @@
         padding: 10px 20px;
         font-size: 16px;
     }
+
+    .container {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    button {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    .page-container {
+        position: relative;
+        min-height: 800px;
+    }
+
+    /*video background*/
+    video {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1000;
+        overflow: hidden;
+    }
+
+    /*video overlay to make text a litle less crappy*/
+    .video-container:after {
+        display: block;
+        z-index: 100;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+
+    /* play/pause button styles */
+    .visuallyhidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .video-btn {
+        border: none;
+        background: none;
+        color: #fff;
+        position: absolute;
+        display: block;
+        font-size: 60px;
+        z-index: 101;
+        opacity: 0.5;
+        bottom: 10%;
+        right: 10%;
+    }
+
+    .video-btn:hover,
+    .video-btn:focus {
+        opacity: 1;
+    }
+
+    .is-paused .video-btn i:before {
+        content: "\f04b";
+    }
+
+    /*page styles*/
+    body {
+        font-family: "Helvetica", Arial, sans-serif;
+        background: #000;
+        color: #fff;
+    }
+
+    .page-content {
+        margin: 0 auto;
+        padding: 40px;
+        position: relative;
+        z-index: 100;
+        max-width: 1410px;
+    }
+
+    h1 {
+        color: #fff;
+        margin: 100px 0 15px;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 30px;
+    }
+
+    ul {
+        margin-bottom: 20px;
+    }
+
+    ul, li {
+        list-style: disc;
+        list-style-position: inside;
+    }
+
+    p {
+        max-width: 600px;
+        line-height: 1.4;
+        color: #ddd;
+    }
+
+    a {
+        color: inherit;
+    }
   </style>
 </head>
 <body>
@@ -315,5 +445,245 @@ document.getElementById("readButton").addEventListener("click", function() {
     <button onclick="truncateText('text2', 30)">Усечь</button>
 </div>
 
+<div>
+    <h1> ДЗ 11</h1>
+    <div class="container">
+        <h1>Корзина</h1>
+        <ul id="cartItems"></ul>
+        <p>Общая стоимость: <span id="totalCost">0</span></p>
+        <button onclick="clearCart()">Очистить корзину</button>
+    </div>
+
+    <script>
+        var cartItems = [
+            { name: "Товар 1", price: 10, quantity: 2 },
+            { name: "Товар 2", price: 20, quantity: 1 },
+            { name: "Товар 3", price: 15, quantity: 3 }
+        ];
+
+        function renderCart() {
+            var cartList = document.getElementById("cartItems");
+            var totalCost = 0;
+            cartList.innerHTML = ""; // Очищаем список перед рендерингом
+
+            for (var i = 0; i < cartItems.length; i++) {
+                var listItem = document.createElement("li");
+                listItem.innerHTML = `<span>${cartItems[i].name}</span> - Цена: ${cartItems[i].price} - Количество: <input type="number" min="1" value="${cartItems[i].quantity}" onchange="updateQuantity(${i}, this.value)"> <button class="removeBtn" onclick="removeItemFromArray(${i})">Корзина</button>`;
+                cartList.appendChild(listItem);
+                totalCost += cartItems[i].price * cartItems[i].quantity;
+            }
+
+            document.getElementById("totalCost").innerText = totalCost;
+        }
+
+        function removeItemFromArray(index) {
+            cartItems.splice(index, 1);
+            renderCart();
+        }
+
+        function updateQuantity(index, quantity) {
+            cartItems[index].quantity = parseInt(quantity);
+            renderCart();
+        }
+
+        function clearCart() {
+            cartItems = [];
+            renderCart();
+        }
+
+        renderCart();
+    </script>
+
+    <div class="container">
+        <h1>Фильтр массива</h1>
+        <input type="number" id="inputA" placeholder="Значение a">
+        <input type="number" id="inputB" placeholder="Значение b">
+        <button onclick="filterArray()">Применить фильтр</button>
+        <ul id="resultList"></ul>
+    </div>
+    <script>
+        function filterArray() {
+            var inputA = parseInt(document.getElementById("inputA").value);
+            var inputB = parseInt(document.getElementById("inputB").value);
+
+            var originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            var filteredArray = originalArray.filter(function(element) {
+                return element >= inputA && element <= inputB;
+            });
+
+            renderResult(filteredArray);
+        }
+
+        function renderResult(array) {
+            var resultList = document.getElementById("resultList");
+            resultList.innerHTML = "";
+
+            for (var i = 0; i < array.length; i++) {
+                var listItem = document.createElement("li");
+                listItem.innerText = array[i];
+                resultList.appendChild(listItem);
+            }
+        }
+    </script>
+
+    <div class="container">
+        <h1>Сортировка элементов</h1>
+        <button onclick="sortAscending()">Сортировать по возрастанию</button>
+        <button onclick="sortDescending()">Сортировать по убыванию</button>
+        <ul id="itemList">
+            <li>Элемент 1</li>
+            <li>Элемент 2</li>
+            <li>Элемент 3</li>
+            <li>Элемент 4</li>
+            <li>Элемент 5</li>
+        </ul>
+    </div>
+
+    <script>
+        function sortAscending() {
+            var itemList = document.getElementById("itemList");
+            var items = Array.from(itemList.getElementsByTagName("li"));
+
+            items.sort(function(a, b) {
+                return a.innerText.localeCompare(b.innerText);
+            });
+
+            for (var i = 0; i < items.length; i++) {
+                itemList.appendChild(items[i]);
+            }
+        }
+
+        function sortDescending() {
+            var itemList = document.getElementById("itemList");
+            var items = Array.from(itemList.getElementsByTagName("li"));
+
+            items.sort(function(a, b) {
+                return b.innerText.localeCompare(a.innerText);
+            });
+
+            for (var i = 0; i < items.length; i++) {
+                itemList.appendChild(items[i]);
+            }
+        }
+    </script>
+</div>
+
+<div>
+    <h1> ДЗ 12</h1>
+    <div class="container">
+        <h1>Уведомления</h1>
+        <button onclick="startNotifications()">Показать уведомления</button>
+        <button onclick="clearNotifications()">Убрать уведомления</button>
+        <ul id="notificationList"></ul>
+    </div>
+
+    <script>
+        var notificationArray = [];
+        var notificationInterval;
+
+        function startNotifications() {
+            var button = document.querySelector('button');
+            button.disabled = true;
+
+            notificationInterval = setInterval(function() {
+                var notification = "Уведомление " + (notificationArray.length + 1);
+                notificationArray.push(notification);
+                displayNotifications();
+            }, 3000);
+
+            setTimeout(function() {
+                clearInterval(notificationInterval);
+                button.disabled = false;
+            }, 10000);
+        }
+
+        function displayNotifications() {
+            var notificationList = document.getElementById("notificationList");
+            notificationList.innerHTML = "";
+
+            for (var i = 0; i < notificationArray.length; i++) {
+                var notification = document.createElement("li");
+                notification.textContent = notificationArray[i];
+                notificationList.appendChild(notification);
+            }
+        }
+
+        function clearNotifications() {
+            notificationArray = [];
+            displayNotifications();
+        }
+    </script>
+
+    <div class="container">
+        <input type="text" id="itemInput" placeholder="Введите содержимое пункта списка">
+        <button onclick="addItem()">Добавить</button>
+    </div>
+    <ul id="list"></ul>
+    <script>
+        function addItem() {
+            var itemInput = document.getElementById("itemInput");
+            var itemContent = itemInput.value.trim();
+
+            if (itemContent) {
+                var listItem = document.createElement("li");
+                listItem.textContent = itemContent;
+
+                var list = document.getElementById("list");
+                list.appendChild(listItem);
+
+                itemInput.value = "";
+            }
+        }
+    </script>
+</div>
+
+
+<div class="page-container">
+    <div class="video-container">
+        <video autoplay muted loop width="100%" height="100%" volume="0" canplay="false" role="img" aria-label="toy robot canon with motorized rotor">
+            <source src="http://techslides.com/demos/sample-videos/small.webm" type="video/webm">
+            <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+            <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+            <source src="http://techslides.com/demos/sample-videos/small.3gp" type="video/3gp">
+            <img src=" http://placehold.it/350x150" alt="test alt img" />
+        </video>
+        <button type="button" class="video-btn">
+            <span class="visuallyhidden">play or pause the video-image background. Video has no sound or narration</span>
+            <i aria-hidden="true" class="fa fa-pause"></i>
+        </button>
+    </div>
+    <div class="page-content">
+        <h1>Super Cool Motor Robots!</h1>
+        <p>Welcome to my site</p>
+        <ul>
+            <li>video element's img alt not read since it's a fallback only if video isn't supported </li>
+            <li>instead, aria-label + role="img" added</li>
+            <li>tested in VO & NVDA</li>
+        </ul>
+        <p>CAVEAT - this is a way to make a somewhat awkward pattern a little less awkward. Depending on the video, text might be a little hard to read. Also, site owners are the best judges of whether or not the video actually needs "alt" text, or if it's just decoration. In that case, aria-hidden may be the better approach.
+        </p>
+        <p>Having a video autoplay and loop may not be suitable for all audiences either, especially if the video has a lot going on visually and can be distracting.</p>
+        <p>For more background, read Emma Sax's<a href="http://www.punkchip.com/accessible-html-video-as-a-background"> article about accessible background videos</a></p>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var $videoTrigger = $(".video-btn");
+    var $videoContainer = $(".video-container");
+
+    $videoTrigger.on("click", function(evt) {
+        if ($videoContainer.hasClass("is-paused")) {
+            $videoContainer
+                .removeClass("is-paused")
+                .find("video").get(0).play();
+        }
+        else {
+            $videoContainer
+                .addClass("is-paused")
+                .find("video").get(0).pause();
+        }
+    });
+</script>
 </body>
 </html>

@@ -19,6 +19,9 @@ body {
     margin: 30px auto 20px;
     background: var(--dark-blue);
     border-radius: 15px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
 }
 
 #film-trailer {
@@ -61,6 +64,9 @@ footer {
     z-index: 998;
     position: relative;
     border-radius: 15px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
     overflow: hidden;
 }
 
@@ -71,6 +77,9 @@ footer {
 }
 .social-icon {
     color: #fff;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
 }
 ul.social-icons {
     height: 100%;
@@ -140,6 +149,9 @@ header {
     text-align: center;
     margin: 0 auto;
     border-radius: 15px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
     overflow: hidden;
 }
 
@@ -150,6 +162,9 @@ hr {
 
 .baby {
     border-radius: 40px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
 }
 
 nav {
@@ -165,7 +180,6 @@ nav ul {
 nav ul li {
     display: inline;
     align-items: center;
-    padding: 10px 10px 10px 10px;
     border-width: 3px;
     border-style: groove;
     border-color: #abc4c4;
@@ -175,10 +189,18 @@ nav ul li {
     text-align: center;
 }
 
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
 .the_center {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     text-align: center;
     font-size: 16px;
     border: 2px solid #0074d9;
@@ -199,7 +221,6 @@ nav ul li {
 
 .button {
     display: inline-block;
-    padding: 10px 20px;
     text-align: center;
     font-size: 16px;
     border: 2px solid #0074d9;
@@ -239,7 +260,6 @@ nav ul li {
 .slider {
     background-color: var(--soft-blue);
     box-shadow: inset 0 0 2px hsla(0,0%,0%,.2),
-    0 3px 1px hsla(0,0%,100%,.75),
     0 -1px 1px 2px hsla(0,0%,0%,.1);
     height: 27em;
     top: 10%;
@@ -264,6 +284,7 @@ nav ul li {
     right: -2.5em;
     top: -2.5em;
     z-index: -1;
+    border-radius: 20px;
 }
 
 .slider:after {
@@ -364,6 +385,9 @@ nav ul li {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
     transform: scale(0.95);
     transition: box-shadow 0.5s, transform 0.5s;
 }
@@ -381,9 +405,7 @@ nav ul li {
 .wrapper .container .top {
     height: 80%;
     width: 100%;
-    background: url('img_2.png');
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url('img_2.png') no-repeat center center;
     background-size: 100%;
 }
 
@@ -502,7 +524,7 @@ nav ul li {
 
 .wrapper .inside {
     z-index: 9;
-    background: #92879b;
+    background: var(--soft-red);
     width: 140px;
     height: 140px;
     position: absolute;
@@ -595,4 +617,44 @@ nav ul li {
 .comic {
     display: flex;
     flex-direction: row;
+    position: relative;
+}
+
+.message {
+    background-color: var(--soft-red);
+    color: var(--dark-red);
+    border-radius: 10px;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
+    padding: 50px;
+    margin: 50px;
+}
+
+@media(max-width: 1005px) {
+    .footer-social-icons
+    {
+        width: 100%;
+    }
+    .social-icons
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .comic{
+        flex-direction: column;
+    }
+
+    .slider{
+        margin: 0 auto;
+    }
+
+    .holding {
+        width: 25em;
+        height: 27em;
+        padding:0;
+        margin: 0 auto 100px;
+    }
 }
