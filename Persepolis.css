@@ -496,6 +496,7 @@ ul.social-icons {
     background-color: darkorange;
     color: #abc4c4;
     height: auto;
+    font-family: Baghdad;
 }
 
 .them {
@@ -535,4 +536,5 @@ ul.social-icons {
     background-color: black;
     font-size: 14px;
     padding: 15px;
+    font-family: Baghdad;
 }
