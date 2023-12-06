@@ -10,7 +10,7 @@ main {
 body {
     background-image: url("ThisIsTheBoy.png");
     background-size: 10%;
-    font-family: 'B52', cursive;
+    font-family: 'B52', cursive, 'Arial';
     text-transform: uppercase;
     font-size: 80px;
     font-weight: bold;
@@ -484,7 +484,7 @@ ul.social-icons {
 
 .Him {
     height: 110%;
-    width: auto;
+    width: 35%;
     position: absolute;
     left: 60%;
     top: -5%;
