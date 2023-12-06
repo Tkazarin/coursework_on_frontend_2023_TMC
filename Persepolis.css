@@ -10,7 +10,7 @@ main {
 body {
     background-image: url("ThisIsTheBoy.png");
     background-size: 10%;
-    font-family: 'B52', cursive, 'Arial';
+    font-family: 'B52', cursive, 'Arial', Baghdad;
     text-transform: uppercase;
     font-size: 80px;
     font-weight: bold;
